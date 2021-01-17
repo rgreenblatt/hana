@@ -13,6 +13,8 @@ Distributed under the Boost Software License, Version 1.0.
 #include <boost/hana/config.hpp>
 #include <boost/hana/detail/intrinsics.hpp>
 
+#include <compare>
+
 
 namespace _hana {
     //////////////////////////////////////////////////////////////////////////
@@ -74,6 +76,9 @@ namespace _hana {
         { }
 
         V data_;
+
+        constexpr bool operator==(const ebo&) const = default;
+        constexpr auto operator<=>(const ebo&) const = default;
     };
 
     //////////////////////////////////////////////////////////////////////////

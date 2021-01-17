@@ -12,6 +12,8 @@ Distributed under the Boost Software License, Version 1.0.
 
 #include <boost/hana/config.hpp>
 
+#include <compare>
+
 
 BOOST_HANA_NAMESPACE_BEGIN namespace detail { namespace operators {
     //! @ingroup group-details
@@ -28,7 +30,10 @@ BOOST_HANA_NAMESPACE_BEGIN namespace detail { namespace operators {
     //! many of these derived classes are stored in a Hana container. If EBO
     //! is not a concern, `adl<>` can simply be used.
     template <typename ...>
-    struct adl { };
+    struct adl { 
+        constexpr bool operator==(const adl&) const = default;
+        constexpr auto operator<=>(const adl&) const = default;
+    };
 }} BOOST_HANA_NAMESPACE_END
 
 #endif // !BOOST_HANA_DETAIL_OPERATORS_ADL_HPP

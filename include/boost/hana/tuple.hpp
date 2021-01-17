@@ -38,6 +38,7 @@ Distributed under the Boost Software License, Version 1.0.
 #include <cstddef>
 #include <type_traits>
 #include <utility>
+#include <compare>
 
 
 BOOST_HANA_NAMESPACE_BEGIN
@@ -193,6 +194,9 @@ BOOST_HANA_NAMESPACE_BEGIN
                            std::make_index_sequence<sizeof...(Xn)>{});
             return *this;
         }
+
+        constexpr bool operator==(const tuple&) const = default;
+        constexpr auto operator<=>(const tuple&) const = default;
     };
 
     //////////////////////////////////////////////////////////////////////////
@@ -201,7 +205,7 @@ BOOST_HANA_NAMESPACE_BEGIN
     namespace detail {
         template <>
         struct comparable_operators<tuple_tag> {
-            static constexpr bool value = true;
+            static constexpr bool value = false;
         };
         template <>
         struct orderable_operators<tuple_tag> {

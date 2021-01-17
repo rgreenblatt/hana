@@ -13,6 +13,8 @@ Distributed under the Boost Software License, Version 1.0.
 #include <boost/hana/config.hpp>
 #include <boost/hana/fwd/at.hpp>
 
+#include <compare>
+
 
 BOOST_HANA_NAMESPACE_BEGIN namespace detail {
     template <typename Derived>
@@ -34,6 +36,9 @@ BOOST_HANA_NAMESPACE_BEGIN namespace detail {
             return hana::at(static_cast<Derived&&>(*this),
                             static_cast<N&&>(n));
         }
+
+        constexpr bool operator==(const iterable_operators&) const = default;
+        constexpr auto operator<=>(const iterable_operators&) const = default;
     };
 } BOOST_HANA_NAMESPACE_END
 

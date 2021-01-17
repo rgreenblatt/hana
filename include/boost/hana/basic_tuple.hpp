@@ -30,6 +30,7 @@ Distributed under the Boost Software License, Version 1.0.
 #include <cstddef>
 #include <type_traits>
 #include <utility>
+#include <compare>
 
 
 BOOST_HANA_NAMESPACE_BEGIN
@@ -59,6 +60,9 @@ BOOST_HANA_NAMESPACE_BEGIN
             static constexpr std::size_t size_ = sizeof...(Xn);
 
             constexpr basic_tuple_impl() = default;
+
+            constexpr bool operator==(const basic_tuple_impl&) const = default;
+            constexpr auto operator<=>(const basic_tuple_impl&) const = default;
 
             template <typename Other>
             explicit constexpr basic_tuple_impl(detail::from_other, Other&& other)
@@ -96,6 +100,9 @@ BOOST_HANA_NAMESPACE_BEGIN
         explicit constexpr basic_tuple(Yn&& ...yn)
             : Base(static_cast<Yn&&>(yn)...)
         { }
+        
+        constexpr bool operator==(const basic_tuple&) const = default;
+        constexpr auto operator<=>(const basic_tuple&) const = default;
     };
     //! @endcond
 
