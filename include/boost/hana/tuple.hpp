@@ -195,8 +195,8 @@ BOOST_HANA_NAMESPACE_BEGIN
             return *this;
         }
 
-        constexpr bool operator==(const tuple&) const = default;
-        constexpr auto operator<=>(const tuple&) const = default;
+        bool operator==(const tuple&) const = default;
+        auto operator<=>(const tuple&) const = default;
     };
 
     //////////////////////////////////////////////////////////////////////////
@@ -205,7 +205,7 @@ BOOST_HANA_NAMESPACE_BEGIN
     namespace detail {
         template <>
         struct comparable_operators<tuple_tag> {
-            static constexpr bool value = false;
+            static constexpr bool value = true;
         };
         template <>
         struct orderable_operators<tuple_tag> {

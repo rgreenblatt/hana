@@ -77,8 +77,8 @@ namespace _hana {
 
         V data_;
 
-        constexpr bool operator==(const ebo&) const = default;
-        constexpr auto operator<=>(const ebo&) const = default;
+        bool operator==(const ebo&) const = default;
+        auto operator<=>(const ebo&) const = default;
     };
 
     //////////////////////////////////////////////////////////////////////////

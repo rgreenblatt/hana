@@ -37,8 +37,8 @@ BOOST_HANA_NAMESPACE_BEGIN namespace detail {
                             static_cast<N&&>(n));
         }
 
-        constexpr bool operator==(const iterable_operators&) const = default;
-        constexpr auto operator<=>(const iterable_operators&) const = default;
+        // bool operator==(const iterable_operators&) const = default;
+        // auto operator<=>(const iterable_operators&) const = default;
     };
 } BOOST_HANA_NAMESPACE_END
 

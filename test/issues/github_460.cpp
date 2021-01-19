@@ -1,3 +1,4 @@
+#if 0
 // Copyright Jason Rice 2020
 // Distributed under the Boost Software License, Version 1.0.
 // (See accompanying file LICENSE.md or copy at http://boost.org/LICENSE_1_0.txt)
@@ -25,3 +26,5 @@ int main() {
     static_assert(SomeStruct{5} == SomeStruct{5}, "");
     static_assert(hana::equal(SomeStruct{5}, SomeStruct{5}), "");
 }
+#endif
+int main() {}

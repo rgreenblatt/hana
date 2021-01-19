@@ -31,8 +31,8 @@ BOOST_HANA_NAMESPACE_BEGIN namespace detail { namespace operators {
     //! is not a concern, `adl<>` can simply be used.
     template <typename ...>
     struct adl { 
-        constexpr bool operator==(const adl&) const = default;
-        constexpr auto operator<=>(const adl&) const = default;
+        // bool operator==(const adl&) const = default;
+        // auto operator<=>(const adl&) const = default;
     };
 }} BOOST_HANA_NAMESPACE_END
 

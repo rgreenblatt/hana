@@ -61,8 +61,8 @@ BOOST_HANA_NAMESPACE_BEGIN
 
             constexpr basic_tuple_impl() = default;
 
-            constexpr bool operator==(const basic_tuple_impl&) const = default;
-            constexpr auto operator<=>(const basic_tuple_impl&) const = default;
+            bool operator==(const basic_tuple_impl&) const = default;
+            auto operator<=>(const basic_tuple_impl&) const = default;
 
             template <typename Other>
             explicit constexpr basic_tuple_impl(detail::from_other, Other&& other)
@@ -101,8 +101,8 @@ BOOST_HANA_NAMESPACE_BEGIN
             : Base(static_cast<Yn&&>(yn)...)
         { }
         
-        constexpr bool operator==(const basic_tuple&) const = default;
-        constexpr auto operator<=>(const basic_tuple&) const = default;
+        bool operator==(const basic_tuple&) const = default;
+        auto operator<=>(const basic_tuple&) const = default;
     };
     //! @endcond
 

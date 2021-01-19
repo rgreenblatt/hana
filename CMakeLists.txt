@@ -49,7 +49,7 @@ include(CheckCxxCompilerSupport)
 include(CheckCXXCompilerFlag)
 add_library(hana INTERFACE)
 target_include_directories(hana INTERFACE "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>")
-target_compile_features(hana INTERFACE cxx_std_14)
+target_compile_features(hana INTERFACE cxx_std_20)
 
 # Export the `hana` library into a HanaConfig.cmake file
 install(TARGETS hana
